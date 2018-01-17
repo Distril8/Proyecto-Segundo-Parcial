@@ -10,17 +10,26 @@
         <ui:define name="contenido">
             <p:panel id="mainPnl" header="Camion" style="width: 50%; margin: auto;">
                 <p:dataTable var="camion" value="#{camionBean.camiones}" 
-                             selectionMode="single" selection="#{camionBean.camionSel}" rowKey="#{camion.codigo}">
+                             selectionMode="single" selection="#{camionBean.camionSel}" rowKey="#{camion.camionPK.codCamion}">
                     <p:ajax event="rowSelect" update="@form" />
                     <p:ajax event="rowUnselect" update="@form" />
                     <p:column headerText="Codigo">
-                        <h:outputText value="#{camion.codigo}" />
+                        <h:outputText value="#{camion.camionPK.codCamion}" />
                     </p:column>
-                    <p:column headerText="Nombre">
-                        <h:outputText value="#{camion.nombre}" />
+                    <p:column headerText="Conductor">
+                        <h:outputText value="#{camion.conductor.nombre}" />
                     </p:column>
-                    <p:column headerText="Descripcion">
-                        <h:outputText value="#{camion.descripcion}" />
+                    <p:column headerText="Marca">
+                        <h:outputText value="#{camion.marca}" />
+                    </p:column>
+                     <p:column headerText="Modelo">
+                         <h:outputText value="#{camion.modelo}" />
+                    </p:column>
+                     <p:column headerText="Color">
+                         <h:outputText value="#{camion.color}" />
+                    </p:column>
+                    <p:column headerText="Placa">
+                        <h:outputText value="#{camion.placa}" />
                     </p:column>
                 </p:dataTable>
                 <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
@@ -32,11 +41,19 @@
                 <p:panel header="#{camionBean.titulo} Camion" visible="#{camionBean.habilitaForm}">
                     <p:panelGrid columns="1">
                         <p:outputLabel for="codigo" value="Codigo" />
-                        <p:inputText id="codigo" value="#{camionBean.camion.codigo}" disabled="#{camionBean.enModificar}" />
-                        <p:outputLabel for="nombre" value="Nombre" />
-                        <p:inputText id="nombre" value="#{camionBean.camion.nombre}"  />
-                        <p:outputLabel for="descripcion" value="Descripci&#243;n" />
-                        <p:inputText id="descripcion" value="#{camionBean.camion.descripcion}"  />
+                        <p:inputText id="codigo" value="#{camionBean.camion.camionPK.codCamion}" disabled="#{camionBean.enModificar}" />
+                        <p:outputLabel for="filtroCmb1" value="Conductores"/>
+                        <p:selectOneMenu id="filtroCmb1" value="#{camionBean.conductorBusqueda}" >
+                            <f:selectItems var="conductor" value="#{camionBean.conductores}" itemLabel="#{conductor.nombre}" itemValue="#{conductor.codigo}"  />
+                        </p:selectOneMenu>
+                        <p:outputLabel for="marca" value="Marca" />
+                        <p:inputText id="marca" value="#{camionBean.camion.marca}"  />
+                        <p:outputLabel for="modelo" value="Modelo" />
+                        <p:inputText id="modelo" value="#{camionBean.camion.modelo}"  />
+                        <p:outputLabel for="color1" value="Color" />
+                        <p:inputText id="color1" value="#{camionBean.camion.color}"  />
+                        <p:outputLabel for="placa" value="Placa" />
+                        <p:inputText id="placa" value="#{camionBean.camion.placa}"  />
                     </p:panelGrid>
                     <p:commandButton value="Aceptar" actionListener="#{camionBean.guardar}" update="@form" />
                     <p:commandButton value="Cancelar" actionListener="#{camionBean.cancelar}" update="@form" />

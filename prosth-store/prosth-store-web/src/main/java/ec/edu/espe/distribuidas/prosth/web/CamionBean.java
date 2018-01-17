@@ -30,6 +30,8 @@ import javax.inject.Named;
 @ViewScoped
 public class CamionBean extends BaseBean implements Serializable {
 
+    private String filtro;
+    private Integer conductorBusqueda;
     private List<Conductor> conductores;
     private List<Camion> camiones;
     private Camion camion;
@@ -75,6 +77,9 @@ public class CamionBean extends BaseBean implements Serializable {
         } catch (Exception e) {
             FacesUtil.addMessageError(null, "No se puede eliminar el registro seleccionado. Verifique que no tenga informacion relacionada.");
         }
+    }
+      public void buscar() {
+            this.camiones = this.camionService.buscarPorTipo(this.conductorBusqueda);
     }
 
     @Override
@@ -135,6 +140,22 @@ public class CamionBean extends BaseBean implements Serializable {
 
     public void setCamionSel(Camion camionSel) {
         this.camionSel = camionSel;
+    }
+
+    public String getFiltro() {
+        return filtro;
+    }
+
+    public void setFiltro(String filtro) {
+        this.filtro = filtro;
+    }
+
+    public Integer getConductorBusqueda() {
+        return conductorBusqueda;
+    }
+
+    public void setConductorBusqueda(Integer conductorBusqueda) {
+        this.conductorBusqueda = conductorBusqueda;
     }
 
 

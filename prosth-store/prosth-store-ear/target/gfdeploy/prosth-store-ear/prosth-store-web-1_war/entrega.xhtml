@@ -11,7 +11,7 @@
             <p:panel id="mainPnl" header="Adminsitracion de Entregas" style="width: 80%; margin: auto;">
                 <p:panel id="buscPnl" header="Busqueda">
                     <p:outputLabel for="filtroCmb" value="Buscar:" />
-                    <p:selectOneMenu id="filtroCmb" value="#{entregaAdminBean.filtro}" required="true"   >
+                    <p:selectOneMenu id="filtroCmb" value="#{entregaAdminBean.filtro}" required="true"  valueChangeListener="#{entregaAdminBean.cambiarFiltro()}" >
                         <p:ajax update="@form"/>
                         
                         <f:selectItem itemLabel="Fechas" itemValue="FEC" />
