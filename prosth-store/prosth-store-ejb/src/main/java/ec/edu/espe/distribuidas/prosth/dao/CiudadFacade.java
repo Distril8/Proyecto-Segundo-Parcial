@@ -9,9 +9,11 @@ package ec.edu.espe.distribuidas.prosth.dao;
 
 
 import ec.edu.espe.distribuidas.prosth.model.Ciudad;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -31,5 +33,9 @@ public class CiudadFacade extends AbstractFacade<Ciudad> {
     public CiudadFacade() {
         super(Ciudad.class);
     }
-    
+       public List<Ciudad> findByTipo(Integer provincia){
+        Query qry=this.em1.createQuery("SELECT obj FROM Ciudad obj WHERE obj.provincia.codProvincia=?1");
+        qry.setParameter(1, provincia);
+        return qry.getResultList();
+    } 
 }

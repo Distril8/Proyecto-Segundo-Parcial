@@ -31,5 +31,5 @@ public class ProvinciaFacade extends AbstractFacade<Provincia> {
     public ProvinciaFacade() {
         super(Provincia.class);
     }
-    
+     
 }

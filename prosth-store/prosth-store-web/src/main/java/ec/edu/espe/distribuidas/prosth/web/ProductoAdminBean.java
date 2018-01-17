@@ -143,13 +143,10 @@ public class ProductoAdminBean  extends BaseBean implements Serializable{
         this.productoSel = productoSel;
     }
 
-   
-
     public boolean isEnBusquedaPorTipo() {
         return enBusquedaPorTipo;
     }
 
    
-    
-    
+   
 }

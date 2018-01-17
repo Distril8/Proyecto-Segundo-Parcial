@@ -6,9 +6,11 @@ ec\edu\espe\distribuidas\prosth\model\Ciudad.class
 ec\edu\espe\distribuidas\prosth\model\Producto_.class
 ec\edu\espe\distribuidas\prosth\dao\CamionFacade.class
 ec\edu\espe\distribuidas\prosth\model\Conductor_.class
+ec\edu\espe\distribuidas\prosth\service\CiudadService.class
 ec\edu\espe\distribuidas\prosth\service\ProveedorService.class
 ec\edu\espe\distribuidas\prosth\model\Proveedor.class
 ec\edu\espe\distribuidas\prosth\model\ModoPago_.class
+ec\edu\espe\distribuidas\prosth\service\CamionService.class
 ec\edu\espe\distribuidas\prosth\model\Usuario_.class
 ec\edu\espe\distribuidas\prosth\service\ConductorService.class
 ec\edu\espe\distribuidas\prosth\dao\CompraFacade.class
@@ -31,6 +33,7 @@ ec\edu\espe\distribuidas\prosth\dao\ProvinciaFacade.class
 ec\edu\espe\distribuidas\prosth\model\Categoria.class
 ec\edu\espe\distribuidas\prosth\model\DetalleVenta.class
 ec\edu\espe\distribuidas\prosth\model\Venta.class
+ec\edu\espe\distribuidas\prosth\service\ProvinciaService.class
 ec\edu\espe\distribuidas\prosth\model\DetalleCompra.class
 ec\edu\espe\distribuidas\prosth\model\Provincia.class
 ec\edu\espe\distribuidas\prosth\model\CamionPK_.class
@@ -45,12 +48,14 @@ ec\edu\espe\distribuidas\prosth\model\Entrega.class
 ec\edu\espe\distribuidas\prosth\dao\DetalleVentaFacade.class
 ec\edu\espe\distribuidas\prosth\dao\ProveedorFacade.class
 ec\edu\espe\distribuidas\prosth\NewSessionBean.class
+ec\edu\espe\distribuidas\prosth\service\UsuarioService.class
 ec\edu\espe\distribuidas\prosth\model\Usuario.class
 ec\edu\espe\distribuidas\prosth\dao\CiudadFacade.class
 ec\edu\espe\distribuidas\prosth\model\UsuarioPK_.class
 ec\edu\espe\distribuidas\prosth\dao\EntregaFacade.class
 ec\edu\espe\distribuidas\prosth\model\Ciudad_.class
 ec\edu\espe\distribuidas\prosth\model\Producto.class
+ec\edu\espe\distribuidas\prosth\model\Item.class
 ec\edu\espe\distribuidas\prosth\model\UsuarioPK.class
 ec\edu\espe\distribuidas\prosth\model\Compra_.class
 ec\edu\espe\distribuidas\prosth\dao\ModoPagoFacade.class

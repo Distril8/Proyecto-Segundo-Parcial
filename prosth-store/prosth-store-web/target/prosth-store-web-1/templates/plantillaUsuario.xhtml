@@ -31,9 +31,9 @@ and open the template in the editor.
                                     <ul id="top_nav">
                                         <li> <p:link outcome="indexU" value="Salir">
                                             </p:link></li>
-                                        <li> <p:link outcome="indexU" value="Ingresar">
+                                        <li> <p:link outcome="loginUsuario" value="Ingresar">
                                             </p:link></li>
-                                        <li> <p:link outcome="indexU" value="Registrarse">
+                                        <li> <p:link outcome="registrarUsuario" value="Registrarse">
                                             </p:link></li>
                                     </ul>
                                     <form id="search" method="post">
@@ -48,9 +48,9 @@ and open the template in the editor.
                         <h:form>
 
                             <p:menubar>
-                                <p:menuitem value="Inicio" icon="ui-icon-home"/>
-                                <p:menuitem value="Compras" icon="ui-icon-cart" />
-                                <p:menuitem value="Categorias" action="producto" icon="ui-icon-clipboard"/>
+                                <p:menuitem value="Inicio"  action = "indexU" icon="ui-icon-home"/>
+                                <p:menuitem value="Compras" oncomplete="PF('dialogClienteCreate').show()" title="Carrito" icon="ui-icon-cart" />
+                                <p:menuitem value="Productos" action="productoU" icon="ui-icon-clipboard"/>
                             </p:menubar>
 
 
