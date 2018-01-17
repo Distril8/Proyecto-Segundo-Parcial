@@ -25,7 +25,7 @@
                     </f:facet>
                     <p:panel header="#{producto.nombre}" style="text-align:center">
                         <h:panelGrid columns="1" style="width:100%">
-                            <p:graphicImage name="images/github-logo.png"/> 
+                            <p:graphicImage value="/imagesP/#{producto.imagen}.png" height="124px"/> 
                             <h:outputText value="#{producto.precio}" />
                             <p:commandLink update="@form:productoDetail" oncomplete="PF('productoDialog').show()" title="View Detail">
                                 <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
@@ -33,14 +33,15 @@
                             </p:commandLink>
                         </h:panelGrid>
                     </p:panel>
+                    
                 </p:dataGrid>
                 <p:dialog header="Producto Info" widgetVar="productoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                     <p:outputPanel id="productoDetail" style="text-align:center;">
                         <p:panelGrid  columns="2" rendered="#{not empty productoAdminBean.productoSel}" columnClasses="label,value">
                             <f:facet name="header">
-                                <p:graphicImage name="images/github-logo.png"/> 
+                                 
                             </f:facet>
-
+                            
                             <h:outputText value="Nombre:" />
                             <h:outputText value="#{productoAdminBean.productoSel.nombre}" />
 
@@ -50,29 +51,11 @@
                             <h:outputText value="Precio" />
                             <h:outputText value="$#{productoAdminBean.productoSel.precio}" />
                         </p:panelGrid>
-                        <p:commandButton value="Comprar"  id="comprar" icon="ui-icon-tag" actionListener="#{sp.addtoCart(producto,input1.value)}" /> 
+                        
+                        <p:commandButton value="Comprar"  id="comprar" icon="ui-icon-tag" actionListener="#{carritoBean.agregarAlCarrito(producto.codigo)}" /> 
                     </p:outputPanel>
                 </p:dialog>
-                 <h:form id="fromCarrito">
-                        <p:dialog header="Carrito de compras" widgetVar="dialogClienteCreate" modal="true" showEffect="fade" hideEffect="fade" resizable="false" id="dlgClienteCreate" width="500px">
-                            <p:dataTable id="basicDT" var="i" value="#{sp.cart}"
-                                         paginator="true" paginatorPosition="bottom"
-                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
-
-                                <p:column headerText="Nombre">
-                                    <h:outputText value="#{i.producto.nombre}" />
-                                </p:column>
-                                <p:column headerText="Precio">
-                                    <h:outputText value="#{i.producto.precio}" />
-                                </p:column>
-                                <p:column headerText="Cantidad">
-                                    <h:outputText value="#{i.cantidad}" />
-                                </p:column>
-                            </p:dataTable>
-                            <h:outputLabel for="total" value="Total:" />
-                            <h:outputText value="$#{sp.total}" />
-                        </p:dialog>
-                    </h:form>
+                 
             </p:panel>
         </ui:define>
     </ui:composition>

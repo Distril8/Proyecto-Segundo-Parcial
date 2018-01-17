@@ -9,10 +9,10 @@
     <ui:composition template="/templates/plantillaUsuario.xhtml">
         <ui:define name="contenido">
             <p:panel id="mainPnl" header="Vista de Productos" style="width: 80%; margin: auto;">
-                <p:carousel value="#{productoAdminBean.productos}" headerText="Responsive" var="producto" itemStyle="text-align:center" responsive="true">
+                <p:carousel value="#{productoAdminBean.productos}"  var="producto" itemStyle="text-align:center" responsive="true">
                     <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
                         <f:facet name="header">
-                            <p:graphicImage name="demo/images/car/l.gif"/> 
+                            <p:graphicImage value="/imagesP/#{producto.imagen}.png" height="124px"/> 
                         </f:facet>
                         <h:outputText value="Nombre:" />
                         <h:outputText value="#{producto.nombre}" style="font-weight: bold"/>

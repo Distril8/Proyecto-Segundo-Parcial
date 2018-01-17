@@ -35,7 +35,7 @@ public class Venta implements Serializable {
     private Integer codigo;
     
     @Column(name = "COD_USUARIO", nullable = false)
-    private Integer codUsuario;
+    private String codUsuario;
     
     @Column(name = "COD_TIPO_USUARIO", nullable = false)
     private Integer codTipoUsuario;
@@ -94,13 +94,23 @@ public class Venta implements Serializable {
         this.usuario = usuario;
     }
 
-    public Integer getCodUsuario() {
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getCodUsuario() {
         return codUsuario;
     }
 
-    public void setCodUsuario(Integer codUsuario) {
+    public void setCodUsuario(String codUsuario) {
         this.codUsuario = codUsuario;
     }
+
+   
 
     public Integer getCodTipoUsuario() {
         return codTipoUsuario;

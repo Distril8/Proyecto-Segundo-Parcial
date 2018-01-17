@@ -51,7 +51,6 @@ public class ProveedorBean extends BaseBean implements Serializable {
     public void agregar() {
         this.proveedor = new Proveedor();
         super.agregar();
-        
     }
 
     @Override
@@ -126,7 +125,7 @@ public class ProveedorBean extends BaseBean implements Serializable {
         this.proveedorService = proveedorService;
     }
 
-
+ 
     
 
 

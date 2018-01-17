@@ -34,8 +34,7 @@ public class Usuario implements Serializable {
     @Column(name = "COD_CIUDAD", nullable = false)
     private Integer codCiudad;
     
-    @Column(name = "COD_TIPO_USUARIO", nullable = false)
-    private Integer codTipoUsuario;
+  
     
     @Column(name = "CI", nullable = false, length = 10)
     private String ci;
@@ -191,13 +190,7 @@ public class Usuario implements Serializable {
         this.ciudad = ciudad;
     }
 
-    public Integer getCodTipoUsuario() {
-        return codTipoUsuario;
-    }
-
-    public void setCodTipoUsuario(Integer codTipoUsuario) {
-        this.codTipoUsuario = codTipoUsuario;
-    }
+ 
 
   
 

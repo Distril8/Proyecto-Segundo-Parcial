@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:composition template="/templates/plantilla.xhtml">
+        <ui:define name="contenido">
+            <p:panel id="mainPnl" header="Adminsitracion de Entregas" style="width: 80%; margin: auto;">
+                <p:panel id="buscPnl" header="Busqueda">
+                    <p:outputLabel for="filtroCmb" value="Buscar:" />
+                    <p:selectOneMenu id="filtroCmb" value="#{entregaAdminBean.filtro}" required="true"   >
+                        <p:ajax update="@form"/>
+                        
+                        <f:selectItem itemLabel="Fechas" itemValue="FEC" />
+                    </p:selectOneMenu>
+                    
+                    <p:calendar id="fechaInicioCal" value="#{entregaAdminBean.fechaInicioBusqueda}" showOn="button" pattern="MM/dd/yyyy" rendered="#{not entregaAdminBean.enBusquedaPorTipo}" />
+                    <p:calendar id="fechaFinCal" value="#{entregaAdminBean.fechaFinBusqueda}" showOn="button" pattern="MM/dd/yyyy" rendered="#{not entregaAdminBean.enBusquedaPorTipo}" />
+                    <p:commandButton id="buscarCmd" value="Buscar" actionListener="#{entregaAdminBean.buscar()}" update="@form" />
+                </p:panel>
+                
+                <p:dataTable id="entregasTbl" var="entrega" value="#{entregaAdminBean.entregas}" 
+                             selectionMode="single" selection="#{entregaAdminBean.entregaSel}" rowKey="#{entrega.codigo}">
+                    <p:ajax event="rowSelect" update="entregasTbl" />
+                    <p:ajax event="rowUnselect" update="entregasTbl" />
+                    <p:column headerText="Conductor" sortBy="#{entrega.camion.conductor.nombre}">
+                        <h:outputText value="#{entrega.camion.conductor.nombre}" />
+                    </p:column>
+                    <p:column headerText="F.Salida" sortBy="#{entrega.fechaSalida}">
+                        <h:outputText value="#{entrega.fechaSalida}" >
+                            <f:convertDateTime pattern="yyyy-MM-dd HH:mm"/>
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="F.Llegada" sortBy="#{entrega.fechaLlegada}">
+                        <h:outputText value="#{entrega.fechaLlegada}" >
+                            <f:convertDateTime pattern="yyyy-MM-dd"/>
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Cliente" sortBy="#{entrega.venta.usuario.nombre}">
+                        <h:outputText value="#{entrega.venta.usuario.nombre}" >
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Cedula Cliente" sortBy="#{entrega.venta.usuario.ci}">
+                        <h:outputText value="#{entrega.venta.usuario.ci}" >
+                        </h:outputText>
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+</html>

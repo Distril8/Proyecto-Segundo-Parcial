@@ -65,7 +65,7 @@ public class TipoUsuarioBean extends BaseBean implements Serializable {
     public void eliminar() {
         try {
             this.tipoUsuarioService.eliminar(this.tipoUsuarioSel.getCodigo());
-            this.tipoUsuario = (TipoUsuario) this.tipoUsuarioService.obtenerTodos();
+            this.tiposUsuario = this.tipoUsuarioService.obtenerTodos();
             FacesUtil.addMessageInfo("Se elimino el registro ");
             this.tipoUsuarioSel = null;
         } catch (Exception e) {

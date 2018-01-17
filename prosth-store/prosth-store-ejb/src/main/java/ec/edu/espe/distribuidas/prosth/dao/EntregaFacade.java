@@ -7,8 +7,8 @@
  */
 package ec.edu.espe.distribuidas.prosth.dao;
 
-
 import ec.edu.espe.distribuidas.prosth.model.Entrega;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -33,10 +33,18 @@ public class EntregaFacade extends AbstractFacade<Entrega> {
     public EntregaFacade() {
         super(Entrega.class);
     }
-    
-    public List<Entrega> findByCodigo(Integer codigo) {
-        Query qry = this.em1.createQuery("SELECT obj FROM Entrega obj WHERE obj.codigo=?1");
-        qry.setParameter(1, codigo);
+
+    public List<Entrega> findByTipo(Integer conductor) {
+        Query qry = this.em1.createQuery("SELECT obj FROM Entrega obj WHERE obj.codConductor=?1");
+        qry.setParameter(1, conductor);
+        return qry.getResultList();
+    }
+
+
+    public List<Entrega> findByFechas(Date fechaInicio, Date fechaFin) {
+        Query qry = this.em1.createQuery("SELECT obj FROM Entrega obj WHERE obj.fechaSalida BETWEEN ?1 AND ?2");
+        qry.setParameter(1, fechaInicio);
+        qry.setParameter(2, fechaFin);
         return qry.getResultList();
     }
 }

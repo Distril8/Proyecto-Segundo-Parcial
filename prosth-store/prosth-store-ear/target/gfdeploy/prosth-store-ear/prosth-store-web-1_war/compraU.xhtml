@@ -9,29 +9,36 @@
     <ui:composition template="/templates/plantillaUsuario.xhtml">
         <ui:define name="contenido">
             <p:panel id="mainPnl" header="Compras" style="width: 80%; margin: auto;">
-                <p:carousel value="#{productoAdminBean.productos}" headerText="Productos Seleccionados" var="producto" itemStyle="text-align:center" responsive="true">
-                    <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
+                <h:dataTable value="#{carritoBean.carrito}" var="productos" rules="all" border="1" cellpadding="5" cellspacing="0" rendered="#{not empty carritoBean.carrito}">                            
+                    <h:column>
                         <f:facet name="header">
-                            <p:graphicImage name="images/github-logo.png"/> 
+                            <h:outputText value="producto"/>
                         </f:facet>
-
-                        <h:outputText value="Nombre:" />
-                        <h:outputText value="#{producto.nombre}" />
-
-                        <h:outputText value="Marca" />
-                        <h:outputText value="#{producto.marca}" />
-
-                        <h:outputText value="precio:" />
-                        <h:outputText value="$#{producto.precio}" />
-
-                        <h:outputText value="Cantidad" />
-                        <h:outputText value="" />
-                    </p:panelGrid>
-
-                    <f:facet name="footer">
-                       
-                    </f:facet>
-                </p:carousel>
+                        <h:outputText value="#{producto.nombre}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="marca"/>
+                        </f:facet>
+                        <h:outputText value="#{producto.marca}"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="precio"/>
+                        </f:facet>
+                        <h:outputText value="#{producto.precio}"/>
+                    </h:column>
+                  
+                </h:dataTable>
+                <br/>
+                <br/>
+                <h:outputLabel value="Total: $"/>
+                <h:outputText value="#{carritoBean.totalCompra}" rendered="#{not empty carritoBean.carrito}"/>
+                <br/>
+                <br/>
+               
+                <h:message id="mensajeError" for="mensajeError"/>
             </p:panel>
         </ui:define>
     </ui:composition>

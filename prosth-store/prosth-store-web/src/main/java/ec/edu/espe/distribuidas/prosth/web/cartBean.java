@@ -24,7 +24,7 @@ public class cartBean implements Serializable {
 
     private List<Item> cart = new ArrayList<Item>();
     private float total;
-private Item selectedItem = new Item();
+    private Item selectedItem = new Item();
 
     public Item getSelectedItem() {
         return selectedItem;
@@ -64,9 +64,9 @@ private Item selectedItem = new Item();
       
 
         for (Item item : cart) {
-            if (item.getProducto().getCodProducto().equals(p.getCodProducto())) {
+            if (item.getProducto().getCodigo().equals(p.getCodigo())) {
                 item.setCantidad(cantidad + item.getCantidad());
-                item.setId(p.getCodProducto());
+                item.setId(p.getCodigo());
                 return cart;
             }
         }
@@ -75,7 +75,7 @@ private Item selectedItem = new Item();
         item1.setProducto(p);
        // BigDecimal.valueOf(cantidad).movePointLeft(2);
         item1.setValorTotal(0);
-        item1.setId(p.getCodProducto());
+        item1.setId(p.getCodigo());
         cart.add(item1);
        // session.setAttribute("carrito", this.cart);
         return cart;

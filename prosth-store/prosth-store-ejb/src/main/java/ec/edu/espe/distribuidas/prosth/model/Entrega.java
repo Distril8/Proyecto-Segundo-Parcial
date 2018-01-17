@@ -73,14 +73,16 @@ public class Entrega implements Serializable {
         this.codigo = codEntrega;
     }
 
-
-    public String getCodEntrega() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodEntrega(String codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+
+
+    
 
     public String getDescripcion() {
         return descripcion;

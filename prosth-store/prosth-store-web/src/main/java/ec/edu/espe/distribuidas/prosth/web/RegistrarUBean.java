@@ -34,7 +34,7 @@ public class RegistrarUBean extends BaseBean implements Serializable {
     private Integer provinciaBusqueda;
     private boolean enBusquedaPorTipo;
     private List<Provincia> provincias;
-   
+    private UsuarioPK usuarioPK;
 
     private String filtro2;
     private Integer ciudadBusqueda;
@@ -57,12 +57,10 @@ public class RegistrarUBean extends BaseBean implements Serializable {
 
     @PostConstruct
     public void init() {
-        this.usuarios = this.usuarioService.obtenerTodos();
         this.ciudades = this.ciudadService.obtenerTodos();
         this.provincias = this.provinciaService.obtenerTodos();
+        this.usuarios = this.usuarioService.obtenerTodos();
         this.usuario = new Usuario();
-       
-        
     }
 
     @Override
@@ -95,17 +93,14 @@ public class RegistrarUBean extends BaseBean implements Serializable {
     }
 
     public void guardar() {
-        
         try {
-            if (this.enAgregar) {
-                
-              
-                this.usuarioService.crear(this.usuario);
-                FacesUtil.addMessageInfo("Se agregó el Usuario: " + this.usuario.getNombre());
-            } else {
-                this.usuarioService.modificar(this.usuario);
-                FacesUtil.addMessageInfo("Se modific\u00f3 el Usuario con c\u00f3digo: " + this.usuario.getNombre());
-            }
+             if (this.enAgregar) {  
+              this.usuarioPK.setCodTipoUsuario(1);
+              this.usuarioPK.setCodUsuario("L00356214");
+              this.usuario.setUsuarioPK(this.usuarioPK);
+              this.usuarioService.crear(this.usuario);
+               FacesUtil.addMessageInfo("Se agregó el Usuario: " + this.usuario.getNombre());
+             }
         } catch (Exception ex) {
             FacesUtil.addMessageError(null, "Ocurrí\u00f3 un error al actualizar la informaci\u00f3n");
         }
@@ -205,6 +200,14 @@ public class RegistrarUBean extends BaseBean implements Serializable {
 
     public void setCiudadBusqueda(Integer ciudadBusqueda) {
         this.ciudadBusqueda = ciudadBusqueda;
+    }
+
+    public UsuarioPK getUsuarioPK() {
+        return usuarioPK;
+    }
+
+    public void setUsuarioPK(UsuarioPK usuarioPK) {
+        this.usuarioPK = usuarioPK;
     }
 
 }

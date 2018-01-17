@@ -48,6 +48,9 @@ public class Producto implements Serializable {
     @Column(name = "MARCA", nullable = false, length = 200)
     private String marca;
     
+    @Column(name = "IMAGEN", length = 500)
+    private String imagen;
+    
     @JoinColumn(name = "COD_CATEGORIA", referencedColumnName = "COD_CATEGORIA",
             nullable = false, insertable = false, updatable = false)
     @ManyToOne
@@ -61,16 +64,17 @@ public class Producto implements Serializable {
     }
 
 
-    public Integer getCodProducto() {
-        return codigo;
-    }
-
-    public void setCodProducto(Integer codigo) {
-        this.codigo = codigo;
-    }
 
     public String getDescripcion() {
         return descripcion;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public void setDescripcion(String descripcion) {

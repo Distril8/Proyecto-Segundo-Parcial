@@ -19,6 +19,7 @@ ec\edu\espe\distribuidas\prosth\service\CategoriaService.class
 ec\edu\espe\distribuidas\prosth\dao\VentaFacade.class
 ec\edu\espe\distribuidas\prosth\service\TipoUsuarioService.class
 ec\edu\espe\distribuidas\prosth\model\Categoria_.class
+ec\edu\espe\distribuidas\prosth\service\EntregaService.class
 ec\edu\espe\distribuidas\prosth\service\ProductoService.class
 ec\edu\espe\distribuidas\prosth\model\Provincia_.class
 ec\edu\espe\distribuidas\prosth\model\Camion_.class
