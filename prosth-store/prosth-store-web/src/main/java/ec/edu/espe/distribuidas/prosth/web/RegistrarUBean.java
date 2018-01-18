@@ -96,8 +96,8 @@ public class RegistrarUBean extends BaseBean implements Serializable {
         try {
              if (this.enAgregar) {  
               this.usuarioPK.setCodTipoUsuario(1);
-              this.usuarioPK.setCodUsuario("L00356214");
-              this.usuario.setUsuarioPK(this.usuarioPK);
+              this.usuarioPK.setCodUsuario("U003");
+              this.usuario.setUsuarioPK(usuarioPK);
               this.usuarioService.crear(this.usuario);
                FacesUtil.addMessageInfo("Se agregó el Usuario: " + this.usuario.getNombre());
              }

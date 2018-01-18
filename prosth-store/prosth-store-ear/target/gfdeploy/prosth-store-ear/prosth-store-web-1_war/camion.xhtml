@@ -36,7 +36,7 @@
                 <p:commandButton value="Agregar" actionListener="#{camionBean.agregar()}" update="@form"/>
                 <p:commandButton id="modBtn" value="Modificar" actionListener="#{camionBean.modificar()}" update="@form" disabled="#{camionBean.camionSel eq null}"/>
                 <p:commandButton value="Eliminar" actionListener="#{camionBean.eliminar()}" update="@form" disabled="#{camionBean.camionSel eq null}" >
-                    <p:confirm header="Confirmaci&#243;n" message="Desea eliminar el Camion: #{camionBean.camionSel.nombre}}" icon="ui-icon-alert" />
+                    <p:confirm header="Confirmaci&#243;n" message="Desea eliminar el Camion: #{camionBean.camionSel.marca}}" icon="ui-icon-alert" />
                 </p:commandButton>
                 <p:panel header="#{camionBean.titulo} Camion" visible="#{camionBean.habilitaForm}">
                     <p:panelGrid columns="1">

@@ -13,6 +13,7 @@
                 <p:commandButton value="Agregar" actionListener="#{registrarUBean.agregar()}" update="@form"/>
                 <p:panel header="#{registrarUBean.titulo} Tipo Usuario" visible="#{registrarUBean.habilitaForm}">
                     <p:panelGrid columns="2">
+                        
                         <p:outputLabel for="ci" value="Cedula de Identidad" />
                         <p:inputText id="ci" value="#{registrarUBean.usuario.ci}"/>
                         <p:outputLabel for="nombre" value="Nombre" />

@@ -11,6 +11,7 @@ package ec.edu.espe.distribuidas.prosth.web;
 
 
 import ec.edu.espe.distribuidas.prosth.model.Camion;
+import ec.edu.espe.distribuidas.prosth.model.CamionPK;
 import ec.edu.espe.distribuidas.prosth.model.Conductor;
 import ec.edu.espe.distribuidas.prosth.service.CamionService;
 import ec.edu.espe.distribuidas.prosth.service.ConductorService;
@@ -46,12 +47,13 @@ public class CamionBean extends BaseBean implements Serializable {
     public void init() {
         this.camiones = this.camionService.obtenerTodos();
         this.camion = new Camion();
+        this.camion.setCamionPK(new CamionPK() );
     }
     @Override
     public void agregar() {
         this.camion = new Camion();
         super.agregar();
-        
+         this.camion.setCamionPK(new CamionPK() );
     }
 
     @Override
